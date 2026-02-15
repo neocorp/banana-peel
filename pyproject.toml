@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "banana-peel"
+version = "0.1.0"
+description = "Remove Gemini AI watermarks from images using LaMa AI inpainting"
+authors = ["Niyazi Erdogan"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/neocorp/banana-peel"
+repository = "https://github.com/neocorp/banana-peel"
+keywords = ["gemini", "watermark", "remover", "cli", "image", "lama", "inpainting"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Multimedia :: Graphics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+packages = [{include = "banana_peel"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.1"
+Pillow = "^10.0"
+numpy = "^1.26"
+opencv-python = "^4.9"
+tqdm = "^4.66"
+onnxruntime = "^1.24.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^5.0"
+black = "^24.0"
+isort = "^5.13"
+flake8 = "^7.0"
+mypy = "^1.9"
+
+[tool.poetry.scripts]
+banana-peel = "banana_peel.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
