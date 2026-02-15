@@ -7,7 +7,7 @@ LaMa (Large Mask Inpainting) AI model.
 https://github.com/neocorp/banana-peel
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Niyazi Erdogan"
 __license__ = "MIT"
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "banana-peel"
-version = "0.1.0"
+version = "0.1.1"
 description = "Remove Gemini AI watermarks from images using LaMa AI inpainting"
 authors = ["Niyazi Erdogan"]
 readme = "README.md"

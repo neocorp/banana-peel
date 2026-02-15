@@ -69,7 +69,7 @@ def process_single_image(
     show_default=True,
     help="Suffix to add to output filenames",
 )
-@click.version_option(version="0.1.0", prog_name="banana-peel")
+@click.version_option(version="0.1.1", prog_name="banana-peel")
 @click.pass_context
 def main(ctx: click.Context, path: str | None, overwrite: bool, suffix: str) -> None:
     """
@@ -97,7 +97,7 @@ def main(ctx: click.Context, path: str | None, overwrite: bool, suffix: str) -> 
 
     # Handle "banana-peel version" -> Show version
     if path == "version":
-        click.echo(f"{ctx.find_root().info_name}, version 0.1.0")
+        click.echo(f"{ctx.find_root().info_name}, version 0.1.1")
         return
 
     input_path = Path(path)
