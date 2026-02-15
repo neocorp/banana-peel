@@ -55,8 +55,8 @@ def process_single_image(
         return False, f"✗ {input_path.name}: {str(e)}"
 
 
-@click.command()
-@click.argument("path", type=click.Path(exists=True))
+@click.command(context_settings={"help_option_names": ["-h", "--help"]})
+@click.argument("path", required=False)
 @click.option(
     "--overwrite",
     is_flag=True,
@@ -70,7 +70,8 @@ def process_single_image(
     help="Suffix to add to output filenames",
 )
 @click.version_option(version="0.1.0", prog_name="banana-peel")
-def main(path: str, overwrite: bool, suffix: str) -> None:
+@click.pass_context
+def main(ctx: click.Context, path: str | None, overwrite: bool, suffix: str) -> None:
     """
     Remove Gemini AI watermarks from images using LaMa AI inpainting.
 
@@ -84,6 +85,21 @@ def main(path: str, overwrite: bool, suffix: str) -> None:
         banana-peel ./photos/
         banana-peel ./photos/ --suffix "_nowm"
     """
+    # Handle "banana-peel" (no args) -> Show help
+    if not path:
+        click.echo(ctx.get_help())
+        return
+
+    # Handle "banana-peel help" -> Show help
+    if path == "help":
+        click.echo(ctx.get_help())
+        return
+
+    # Handle "banana-peel version" -> Show version
+    if path == "version":
+        click.echo(f"{ctx.find_root().info_name}, version 0.1.0")
+        return
+
     input_path = Path(path)
 
     is_valid, error_msg = validate_input_path(path)

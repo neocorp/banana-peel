@@ -30,15 +30,15 @@ The AI model runs **100% locally** via ONNX Runtime — no cloud, no API keys, n
 
 ## Installation
 
-### From Source
+### Stable (Recommended)
 
 ```bash
-git clone https://github.com/neocorp/banana-peel.git
-cd banana-peel
-pip install .
+pip install banana-peel
 ```
 
-### With Poetry (development)
+[View on PyPI](https://pypi.org/project/banana-peel/)
+
+### Development
 
 ```bash
 git clone https://github.com/neocorp/banana-peel.git
